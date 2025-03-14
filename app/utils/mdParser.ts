@@ -9,7 +9,7 @@ export const mdParser = (slug: string) => {
     '__posts',
     `${slug}.md`
   );
-  console.log(filePath);
+
   if (!fs.existsSync(filePath)) {
     return null;
   }
