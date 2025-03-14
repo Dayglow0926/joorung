@@ -1,8 +1,10 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
+import { remark } from 'remark';
+import remarkHtml from 'remark-html';
 
-export const mdParser = (slug: string) => {
+export const mdParser = async (slug: string) => {
   const filePath = path.join(
     process.cwd(),
     'contents',
@@ -17,5 +19,8 @@ export const mdParser = (slug: string) => {
   const fileContent = fs.readFileSync(filePath, 'utf8');
   const { data, content } = matter(fileContent);
 
-  return { ...data, content };
+  // remark 사용해서 html로 변환
+  const html = await remark().use(remarkHtml).process(content);
+
+  return { ...data, content: html };
 };
