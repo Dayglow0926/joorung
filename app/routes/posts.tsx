@@ -38,7 +38,7 @@ export default function Posts() {
       {posts.map((post: Post) => (
         <div
           key={post.slug}
-          className="border-b border-gray-200 pb-4 text-white"
+          className="border-b border-gray-200 pb-4 dark:bg-gray-900 dark:text-white"
         >
           <Link to={`/post/${post.slug}`}>
             <h2 className="text-2xl font-bold">{post.title}</h2>

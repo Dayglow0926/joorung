@@ -21,7 +21,7 @@ export default function BlogPost() {
       <p className="text-gray-500 text-sm mb-6">{post.date}</p>
       <div
         dangerouslySetInnerHTML={{ __html: post.content }}
-        className="prose prose-invert"
+        className="prose dark:prose-invert"
       />
     </div>
   );
