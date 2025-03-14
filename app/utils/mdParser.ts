@@ -20,7 +20,7 @@ export const mdParser = async (slug: string) => {
   const { data, content } = matter(fileContent);
 
   // remark 사용해서 html로 변환
-  const html = await remark().use(remarkHtml).process(content);
+  const html = (await remark().use(remarkHtml).process(content)).toString();
 
   return { ...data, content: html };
 };
